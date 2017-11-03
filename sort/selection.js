@@ -12,9 +12,11 @@ class Selection {
     console.log(`起始数据 : ${arr.join(' ')}`)
     let N = arr.length;
     let i = 0;
+    // 外层循环用于在i处放入最小值
     for (i; i < N; i++) {
       let min = i;
       let j = i + 1;
+      // 内层循环用于找到min
       for (j; j < N; j++) {
         if (this.less(arr[j], arr[min])) {
           min = j;

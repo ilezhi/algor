@@ -7,10 +7,15 @@ class Example {
 
   less(i, j) {
     // 比较
+    return (i < j);
   }
 
   exch(arr, i, j) {
     // 交换
+    let t;
+    t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
   }
 
   show(arr) {
