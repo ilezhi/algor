@@ -20,6 +20,11 @@ class Example {
 
   show(arr) {
     // 打印
+    let i = 0;
+    let len = arr.length;
+    for (i; i < len; i++) {
+      console.log(arr[i])
+    }
   }
 
   isSorted(arr) {
