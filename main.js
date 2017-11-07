@@ -1,33 +1,24 @@
 // 在这里验证算法，可以接受命令行传来的参数
 
-class Example {
-  sort() {
-
-  }
-
+class Sort {
   less(i, j) {
-    // 比较
     return (i < j);
   }
 
-  exch(arr, i, j) {
-    // 交换
+  exch(a, i, j) {
     let t;
-    t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
+    t = a[i];
+    a[i] = a[j];
+    a[j] = t;
   }
 
-  show(arr) {
-    // 打印
-    let i = 0;
-    let len = arr.length;
-    for (i; i < len; i++) {
-      console.log(arr[i])
-    }
+  show(a) {
+    console.log(a.join(','));
   }
 
-  isSorted(arr) {
-    // 是否有序
+  isSorted(a) {
+    // a是否有序
   }
 }
+
+module.exports = Sort;

@@ -1,3 +1,5 @@
+const Sort = require('../main');
+
 /**
  * 选择排序
  * 找到数组中最小的元素，
@@ -7,52 +9,22 @@
  * 直到将整个数组排序
  */
 
-class Selection {
-  sort(arr) {
-    console.log(`起始数据 : ${arr.join(' ')}`)
-    let N = arr.length;
+class Selection extends Sort {
+  sort(a) {
+    let len = a.length;
     let i = 0;
-    // 外层循环用于在i处放入最小值
-    for (i; i < N; i++) {
+
+    for (i; i < len; i++) {
       let min = i;
       let j = i + 1;
-      // 内层循环用于找到min
-      for (j; j < N; j++) {
-        if (this.less(arr[j], arr[min])) {
+      for (j; j < len; j++) {
+        if (this.less(a[j], a[min])) {
           min = j;
         }
       }
-      
-      console.log(`第${i}次交换: ${arr.join(' ')}`)
+
       this.exch(a, i, min);
     }
-  }
-
-  less(i, j) {
-    // 比较
-    // console.log(`比较的数为${i}和${j}`);
-    return (i < j);
-  }
-
-  exch(arr, i, j) {
-    // 交换
-    let t;
-    t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
-  }
-
-  show(arr) {
-    // 打印
-    let i = 0;
-    let len = arr.length;
-    for (i; i < len; i++) {
-      console.log(arr[i])
-    }
-  }
-
-  isSorted(arr) {
-    // 是否有序
   }
 }
 
@@ -60,3 +32,4 @@ class Selection {
 let s = new Selection();
 let a = ['S', 'O', 'R', 'T', 'E', 'X', 'A', 'M', 'P', 'L', 'E'];
 s.sort(a);
+s.show(a);

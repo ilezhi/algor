@@ -1,3 +1,4 @@
+const Sort = require('../main');
 /**
  * 希尔排序
  * 间隔为h的项为一组进行插入排序,
@@ -7,58 +8,29 @@
  * 插入排序对于部分有序序列排序效率特别高.
  */
 
-
-class Shell {
-  sort(arr) {
-    let N = arr.length;
+class Shell extends Sort {
+  sort(a) {
+    let len = a.length;
     let h = 1;
 
-    // 计算间隔
-    // N = 16;
-    // h = 13
-    while (h < N / 3) {
-      h = 3 * h + 1;        // 1, 4, 13, 40, ...
+    // 计算出最大间隔,使数组第一次先分成2个间隔为h的子数组
+    while (h < Math.floor(len / 3)) {
+      h = 3 * h + 1;
     }
 
-    // 控制h的间隔
     while (h >= 1) {
-      // 从间隔h项开始,逐项遍历到最后一个
-      for (let i = h; i < N; i++) {
-        // 内存循环负责第i项,与前i - h, i - 2 * h, ...比较.
-        for (let j = i; j >= h && this.less(arr[j], arr[j-h]); j -= h) {
-          this.exch(arr, j, j-h);
+      for (let i = h; i < len; i++) {
+        for (let j = i; j >= h && this.less(a[j], a[j-h]); j -= h) {
+          this.exch(a, j, j-h);
         }
       }
+
+      // 减小h间隔
       h = Math.floor(h / 3);
     }
   }
-
-  less(i, j) {
-    // 比较
-    return (i < j);
-  }
-
-  exch(arr, i, j) {
-    // 交换
-    let t;
-    t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
-  }
-
-  show(arr) {
-    // 打印
-    let i = 0;
-    let len = arr.length;
-    for (i; i < len; i++) {
-      console.log(arr[i])
-    }
-  }
-
-  isSorted(arr) {
-    // 是否有序
-  }
 }
+
 var s = new Shell();
 let a = ['S', 'H', 'E', 'L', 'L', 'S', 'O', 'R', 'T', 'E', 'X', 'A', 'M', 'P', 'L', 'E'];
 s.sort(a);

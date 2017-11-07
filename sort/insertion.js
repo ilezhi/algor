@@ -1,3 +1,4 @@
+const Sort = require('../main');
 /**
  * 插入排序
  * 
@@ -6,50 +7,24 @@
  * 
  */
 
-
-class Insertion {
-  sort(arr) {
-    console.log(`起始数据 : ${arr.join(' ')}`)
-    let N = arr.length;
+class Insertion extends Sort {
+  sort(a) {
+    let len = a.length;
     let i = 1;
-    // 外层循环用于控制用第i个值插入前0到i-1个值
-    for (i; i < N; i++) {
+
+    for (i; i < len; i++) {
       let j = i;
-      // 内层循环用于将i值插入到合适位置
-      // i前面的值都是已排好序的
-      // this.less(arr[j], arr[j-1]) 主要用于判断是否执行交换
-      for (j; j > 0 && this.less(arr[j], arr[j-1]); j--) {
+      for (j; j > 0 && this.less(a[j], a[j-1]); j--) {
         this.exch(a, j, j-1);
       }
-      console.log(`第${i}次交换: ${arr.join(' ')}`)
     }
-  }
-
-  less(i, j) {
-    // 比较
-    return (i < j);
-  }
-
-  exch(arr, i, j) {
-    // 交换
-    let t;
-    t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
-  }
-
-  show(arr) {
-    // 打印
-  }
-
-  isSorted(arr) {
-    // 是否有序
   }
 }
 
 let s = new Insertion();
 let a = ['S', 'O', 'R', 'T', 'E', 'X', 'A', 'M', 'P', 'L', 'E'];
 s.sort(a);
+s.show(a);
 
 /**
  * i  j  S O R T E X A M P L E
