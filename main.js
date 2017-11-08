@@ -10,6 +10,7 @@ class Sort {
     t = a[i];
     a[i] = a[j];
     a[j] = t;
+    console.log('换', i, j, a.join(','));
   }
 
   show(a) {
